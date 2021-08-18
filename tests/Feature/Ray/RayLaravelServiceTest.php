@@ -7,8 +7,8 @@ use App\Events\User\UserCreated;
 use App\Events\User\UsersCachedUpdated;
 use App\Jobs\SendInvitations;
 use App\Jobs\SendMarketingNotifications;
+use App\Mail\UserRegistered;
 use App\Models\User;
-use App\Notifications\BasicNotification;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
@@ -174,9 +174,14 @@ class RayLaravelServiceTest extends TestCase
         Http::get(route('api.v1.users.show', ['user' => $user]));
     }
 
+    /**
+     * Display mail template
+     *
+     * @test
+     */
     public function mailable(): void
     {
-        ray()->mailable(new BasicNotification());
+        ray()->mailable(new UserRegistered());
     }
 
     /**

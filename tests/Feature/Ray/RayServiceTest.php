@@ -58,6 +58,8 @@ class RayServiceTest extends TestCase
 
     /**
      * Open new screen in ray app
+     *
+     * @test
      */
     public function newScreen(): void
     {

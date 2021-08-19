@@ -28,7 +28,7 @@ class RayLaravelServiceTest extends TestCase
         ray()->showQueries();
 
         User::query()
-            ->where('email', 'rafal@webartisans.pl')
+            ->where('email', 'aga@webartisans.pl')
             ->first(); // Will be displayed
 
         ray()->stopShowingQueries();
@@ -36,7 +36,8 @@ class RayLaravelServiceTest extends TestCase
 
         // Closure
         ray()->showQueries(function () {
-            User::query()->where('email', 'rafal@webartisans.pl')
+            User::query()
+                ->where('email', 'karol@webartisans.pl')
                 ->first(); // Will be displayed
         });
 
@@ -45,7 +46,7 @@ class RayLaravelServiceTest extends TestCase
          * Will not be displayed
          */
         User::query()
-            ->where('email', 'aga@webartisans.pl')
+            ->where('email', 'rafal@webartisans.pl')
             ->first();
 
     }

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Ray;
 
+use App\Models\User;
 use Tests\TestCase;
 
 /**
@@ -22,12 +23,7 @@ class RayPHPServiceTest extends TestCase
     {
         ray()->measure();
         sleep(1);
-
         ray()->measure();
-        sleep(2);
-
-        ray()->measure();
-        ray()->pause();
     }
 
     /**
@@ -43,6 +39,8 @@ class RayPHPServiceTest extends TestCase
             'Trzeci wierszy' => 'Trzecia wartość',
         ]);
 
+        // User as table
+        ray()->table(User::first()->toArray());
     }
 
     /**

@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index(): UserCollection
     {
-        ray("Test user index")->green();
+        ray("Hello from Laravel!")->orange();
         return new UserCollection(User::query()->paginate());
     }
 }
